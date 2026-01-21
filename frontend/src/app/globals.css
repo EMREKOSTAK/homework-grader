@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 249, 250, 251;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  min-height: 100vh;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 text-white px-4 py-2 rounded-lg font-medium
+           hover:bg-primary-700 focus:outline-none focus:ring-2
+           focus:ring-primary-500 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-gray-700 px-4 py-2 rounded-lg font-medium
+           border border-gray-300 hover:bg-gray-50
+           focus:outline-none focus:ring-2 focus:ring-primary-500
+           focus:ring-offset-2 disabled:opacity-50
+           disabled:cursor-not-allowed transition-colors duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200 p-6;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-md transition-shadow duration-200;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg
+           focus:outline-none focus:ring-2 focus:ring-primary-500
+           focus:border-transparent;
+  }
+
+  .score-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full
+           text-sm font-semibold;
+  }
+
+  .evidence-quote {
+    @apply bg-gray-50 border-l-4 border-primary-500 pl-4 py-2
+           italic text-gray-700;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* File upload area */
+.upload-zone {
+  @apply border-2 border-dashed border-gray-300 rounded-xl p-8
+         text-center cursor-pointer transition-all duration-200
+         hover:border-primary-500 hover:bg-primary-50;
+}
+
+.upload-zone.dragging {
+  @apply border-primary-500 bg-primary-50;
+}
+
+.upload-zone.has-file {
+  @apply border-green-500 bg-green-50;
+}
+
+/* Expandable section animation */
+.expandable-content {
+  @apply overflow-hidden transition-all duration-300 ease-in-out;
+}
+
+/* Progress bar animation */
+.progress-bar {
+  @apply h-2 bg-gray-200 rounded-full overflow-hidden;
+}
+
+.progress-bar-fill {
+  @apply h-full bg-primary-600 transition-all duration-300 ease-out;
+}
